@@ -9,7 +9,7 @@ const express = require('express');
 // Puerto en el que se ejecutará el servidor
 const {PORT,HOSTTOKENUSUARIOS,GRPCPORTASESORIAS,
    DEPLOY
-   , IPS
+   , IPS, DEPLOYCORS
 
 } = require("./configuracion/default.js");
 // Rutas de la aplicación
@@ -47,6 +47,9 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
+
+
+if(DEPLOYCORS === 'YES'){
 
 let allowedIPs;
 
@@ -89,6 +92,11 @@ const corsOptions = (req, callback) => {
 
 // Aplica el middleware de CORS/IP Whitelisting
 app.use(cors(corsOptions));
+}
+else{
+  app.use(cors());
+}
+
 // Middleware para loguear cada petición con URL completa, headers, y cuerpo
 app.use((req, res, next) => {
   const { method, url, body, query, headers } = req;

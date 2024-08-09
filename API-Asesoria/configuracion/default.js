@@ -30,7 +30,7 @@ const GRPCPORTASESORIAS = process.env.GRPCPORTASESORIAS ;
  const DEPLOY = process.env.DEPLOY ;
   const DEPLOYA = process.env.DEPLOYA ;
   const DEPLOYB = process.env.DEPLOYB ;
-
+const DEPLOYCORS = process.env.DEPLOYCORS ;
  
 // Exportamos las variables
 module.exports = {
@@ -41,7 +41,8 @@ module.exports = {
     PORT,
     DBPORT,
     HOSTTOKENUSUARIOS ,  GRPCPORTASESORIAS , HOSTGRPCCODIGOSPOSTALES,
-    DEPLOY, DEPLOYA, DEPLOYB, IPS
+    DEPLOY, DEPLOYA, DEPLOYB, IPS,
+    DEPLOYCORS
 }
  
 

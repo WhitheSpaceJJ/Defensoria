@@ -57,52 +57,57 @@ class Server {
     // Middleware para parsear el cuerpo de las peticiones a JSON
     this.app.use(express.json())
     // Middleware pa ra habilitar CORS
-    this.app.use(cors())
+    // this.app.use(cors())
+
+    if (process.env.DEPLOYCORS === 'YES') {
+
+      let allowedIPs;
+
+      try {
+        allowedIPs = process.env.IPS.split(',').map(ip => ip.trim());
+        console.log(allowedIPs);
+      } catch (error) {
+        console.error('Error parsing IPS environment variable:', error.message);
+        allowedIPs = []; // Maneja el error de la forma que consideres adecuada
+      }
+
+      // Middleware de CORS y IP Whitelisting combinado
 
 
-    let allowedIPs;
+      const corsOptions = (req, callback) => {
+        console.log(allowedIPs);
 
-    try {
-      allowedIPs = process.env.IPS.split(',').map(ip => ip.trim());
-      console.log(allowedIPs);
-    } catch (error) {
-      console.error('Error parsing IPS environment variable:', error.message);
-      allowedIPs = []; // Maneja el error de la forma que consideres adecuada
+        let requestIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress;
+
+        // Si requestIP es una dirección IPv6-mapeada-a-IPv4, la limpiamos
+        if (requestIP && requestIP.includes('::ffff:')) {
+          requestIP = requestIP.replace('::ffff:', '');
+        }
+
+        console.log('Request IP:', requestIP);
+
+        if (allowedIPs.includes(requestIP)) {
+          console.log('Permitido');
+          // Si la IP está permitida, permite la solicitud CORS
+          callback(null, {
+            origin: true, // Permite todas las solicitudes CORS
+            methods: ['GET', 'POST', 'PUT', 'DELETE'],
+            allowedHeaders: ['Content-Type', 'Authorization'],
+            exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar']
+          });
+        } else {
+          console.log('No Permitido');
+          // Si la IP no está permitida, rechaza la solicitud CORS
+          callback(new Error('No autorizado por CORS'));
+        }
+      };
+
+      // Aplica el middleware de CORS/IP Whitelisting
+      this.app.use(cors(corsOptions));
     }
-    
-    // Middleware de CORS y IP Whitelisting combinado
-
-
-    const corsOptions = (req, callback) => {
-      console.log(allowedIPs);
-    
-      let requestIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress;
-    
-      // Si requestIP es una dirección IPv6-mapeada-a-IPv4, la limpiamos
-      if (requestIP && requestIP.includes('::ffff:')) {
-        requestIP = requestIP.replace('::ffff:', '');
-      }
-    
-      console.log('Request IP:', requestIP);
-    
-      if (allowedIPs.includes(requestIP)) {
-        console.log('Permitido');
-        // Si la IP está permitida, permite la solicitud CORS
-        callback(null, {
-          origin: true, // Permite todas las solicitudes CORS
-          methods: ['GET', 'POST', 'PUT', 'DELETE'],
-          allowedHeaders: ['Content-Type', 'Authorization'],
-          exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar']
-        });
-      } else {
-        console.log('No Permitido');
-        // Si la IP no está permitida, rechaza la solicitud CORS
-        callback(new Error('No autorizado por CORS'));
-      }
-    };
-    
-    // Aplica el middleware de CORS/IP Whitelisting
-    this.app.use(cors(corsOptions));
+    else {
+      this.app.use(cors());
+    }
 
     // Middleware para loguear cada petición con URL completa, headers, y cuerpo
     this.app.use((req, res, next) => {
@@ -176,7 +181,7 @@ class Server {
       this.app.listen(this.port, () => {
         logger.info(`Servidor escuchando en el puerto ${this.port}`);
       });
-    } else if (process.env.DEPLOY  === 'DEPLOYB') {
+    } else if (process.env.DEPLOY === 'DEPLOYB') {
       const privateKey = fs.readFileSync(path.join(__dirname, 'server.key'), 'utf8');
       const certificate = fs.readFileSync(path.join(__dirname, 'server.cer'), 'utf8');
       const credentials = { key: privateKey, cert: certificate };

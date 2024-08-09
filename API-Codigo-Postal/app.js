@@ -24,46 +24,54 @@ app.use(express.json());
 
 let allowedIPs;
 
-try {
-  allowedIPs = process.env.IPS.split(',').map(ip => ip.trim());
-  console.log(allowedIPs);
-} catch (error) {
-  console.error('Error parsing IPS environment variable:', error.message);
-  allowedIPs = []; // Maneja el error de la forma que consideres adecuada
+if (process.env.DEPLOYCORS === 'YES') {
+
+  try {
+    allowedIPs = process.env.IPS.split(',').map(ip => ip.trim());
+    console.log(allowedIPs);
+  } catch (error) {
+    console.error('Error parsing IPS environment variable:', error.message);
+    allowedIPs = []; // Maneja el error de la forma que consideres adecuada
+  }
+
+
+  const corsOptions = (req, callback) => {
+    console.log(allowedIPs);
+
+    let requestIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress;
+
+    // Si requestIP es una dirección IPv6-mapeada-a-IPv4, la limpiamos
+    if (requestIP && requestIP.includes('::ffff:')) {
+      requestIP = requestIP.replace('::ffff:', '');
+    }
+
+    console.log('Request IP:', requestIP);
+
+    if (allowedIPs.includes(requestIP)) {
+      console.log('Permitido');
+      // Si la IP está permitida, permite la solicitud CORS
+      callback(null, {
+        origin: true, // Permite todas las solicitudes CORS
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar']
+      });
+    } else {
+      console.log('No Permitido');
+      // Si la IP no está permitida, rechaza la solicitud CORS
+      callback(new Error('No autorizado por CORS'));
+    }
+  };
+
+
+  // Aplica el middleware de CORS/IP Whitelisting
+  app.use(cors(corsOptions));
+}
+else {
+  app.use(cors());
 }
 
 
-const corsOptions = (req, callback) => {
-  console.log(allowedIPs);
-
-  let requestIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress;
-
-  // Si requestIP es una dirección IPv6-mapeada-a-IPv4, la limpiamos
-  if (requestIP && requestIP.includes('::ffff:')) {
-    requestIP = requestIP.replace('::ffff:', '');
-  }
-
-  console.log('Request IP:', requestIP);
-
-  if (allowedIPs.includes(requestIP)) {
-    console.log('Permitido');
-    // Si la IP está permitida, permite la solicitud CORS
-    callback(null, {
-      origin: true, // Permite todas las solicitudes CORS
-      methods: ['GET', 'POST', 'PUT', 'DELETE'],
-      allowedHeaders: ['Content-Type', 'Authorization'],
-      exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar']
-    });
-  } else {
-    console.log('No Permitido');
-    // Si la IP no está permitida, rechaza la solicitud CORS
-    callback(new Error('No autorizado por CORS'));
-  }
-};
-
-
-// Aplica el middleware de CORS/IP Whitelisting
-app.use(cors(corsOptions));
 /*
 
 const app = express();
@@ -96,7 +104,7 @@ const jwtMiddleware = async (req, res, next) => {
   // Verificar si el token existe en el encabezado
   if (!tokenHeader) {
     const customeError = new CustomeError('Token no proporcionado.', 401);
-     logger.warn('Token no proporcionado.');
+    logger.warn('Token no proporcionado.');
     next(customeError);
     return;
   }
@@ -114,16 +122,16 @@ const jwtMiddleware = async (req, res, next) => {
       return;
     }
     //se supone response.permisos es un array, no hay metodo que lo trate como arreglo
-     const permisos =  response.permisos;
-     const id_distrito_judicial = response.id_distrito_judicial;
-     const id_usuario = response.id_usuario;
-     const id_tipouser = response.id_tipouser;
-     const id_empleado = response.id_empleado;
-    if ( permisos=== 0) {
+    const permisos = response.permisos;
+    const id_distrito_judicial = response.id_distrito_judicial;
+    const id_usuario = response.id_usuario;
+    const id_tipouser = response.id_tipouser;
+    const id_empleado = response.id_empleado;
+    if (permisos === 0) {
       const customeError = new CustomeError('Token inválido, no ha iniciado sesión o no cuenta con permisos.', 401);
-       logger.warn('Token inválido.');
+      logger.warn('Token inválido.');
       next(customeError);
-    } else{
+    } else {
       req.id_tipouser = id_tipouser;
       req.id_usuario = id_usuario;
       req.id_empleado = id_empleado;
@@ -198,31 +206,31 @@ function getServer() {
 
 
 //if (DEPLOY === 'DEPLOYA') {
-  const server = getServer();
-  server.bindAsync(GRPCPORTCODIGOSPOSTALES, grpc2.ServerCredentials.createInsecure(), (error, port) => {
-    if (error) {
-      console.error(`Error binding gRPC server: ${error.message}`);
-      return;
-    }
-    console.log(`gRPC listening on ${GRPCPORTCODIGOSPOSTALES}`);
-  });
-  /*
+const server = getServer();
+server.bindAsync(GRPCPORTCODIGOSPOSTALES, grpc2.ServerCredentials.createInsecure(), (error, port) => {
+  if (error) {
+    console.error(`Error binding gRPC server: ${error.message}`);
+    return;
+  }
+  console.log(`gRPC listening on ${GRPCPORTCODIGOSPOSTALES}`);
+});
+/*
 }
 else if (DEPLOY === 'DEPLOYB') {
-  const privateKey = fs.readFileSync(path.join(__dirname, 'server.key'), 'utf8');
-  const certificate = fs.readFileSync(path.join(__dirname, 'server.cer'), 'utf8');
-  const credentials = grpc2.ServerCredentials.createSsl(null, [{
-    cert_chain: Buffer.from(certificate),
-    private_key: Buffer.from(privateKey)
-  }], true);
+const privateKey = fs.readFileSync(path.join(__dirname, 'server.key'), 'utf8');
+const certificate = fs.readFileSync(path.join(__dirname, 'server.cer'), 'utf8');
+const credentials = grpc2.ServerCredentials.createSsl(null, [{
+  cert_chain: Buffer.from(certificate),
+  private_key: Buffer.from(privateKey)
+}], true);
 
-  const server = getServer();
-  server.bindAsync(`localhost:${GRPCPORTCODIGOSPOSTALES}`, credentials, (error, port) => {
-    if (error) {
-      console.error(`Error binding gRPC server with SSL: ${error.message}`);
-      return;
-    }
-    console.log(`gRPC listening on https://${GRPCPORTCODIGOSPOSTALES}`);
-  });
+const server = getServer();
+server.bindAsync(`localhost:${GRPCPORTCODIGOSPOSTALES}`, credentials, (error, port) => {
+  if (error) {
+    console.error(`Error binding gRPC server with SSL: ${error.message}`);
+    return;
+  }
+  console.log(`gRPC listening on https://${GRPCPORTCODIGOSPOSTALES}`);
+});
 }
 */

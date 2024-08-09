@@ -28,6 +28,7 @@ const app = express();
 
 app.use(express.json());
 
+if (process.env.DEPLOYCORS === 'YES') { 
 
 let allowedIPs;
 
@@ -71,6 +72,10 @@ const corsOptions = (req, callback) => {
  
 // Aplica el middleware de CORS/IP Whitelisting
 app.use(cors(corsOptions));
+}
+else {
+  app.use(cors());
+}
 
 // Middleware para loguear cada petición con URL completa, headers, y cuerpo
 app.use((req, res, next) => {
