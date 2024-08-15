@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3002:3002"
+    environment:
+      DEPLOYCORS: ${DEPLOYCORS}
+      DBHOST: ${DBHOST}
+      DBUSER: ${DBUSER}
+      DBPASSWORD: ${DBPASSWORD}
+      DATABASE: ${DATABASE}
+      PORT: ${PORT}
+      DBPORT: ${DBPORT}
+      HOSTGRPCASESORIAS: ${HOSTGRPCASESORIAS}
+      GRPCPORTUSUARIOS: ${GRPCPORTUSUARIOS}
+      DEPLOY: ${DEPLOY}
+      DEPLOYA: ${DEPLOYA}
+      DEPLOYB: ${DEPLOYB}
+      APPWEBASESORIA: ${APPWEBASESORIA}
+      APPWEBDEMANDA: ${APPWEBDEMANDA}
+      IPS: ${IPS}
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DBPASSWORD}
+    ports:
+      - "3307:3306"
+    expose:
+      - "3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./usuarios_testing.sql:/docker-entrypoint-initdb.d/usuarios_testing.sql
+
+volumes:
+  db_data:
