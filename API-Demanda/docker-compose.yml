@@ -25,7 +25,7 @@ services:
       - db4
     volumes:
       - .:/usr/src/app
-    networks_mode: "bridge"
+    network_mode: "bridge"
 
   db4:
     image: mysql:8.0
