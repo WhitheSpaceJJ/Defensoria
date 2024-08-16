@@ -25,6 +25,7 @@ services:
       - db
     volumes:
       - .:/usr/src/app
+    network_mode: "bridge"
 
   db:
     image: mysql:8.0
