@@ -1,0 +1,12 @@
+2024-08-16 07:45:19 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-16 07:45:26 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36","referer":"http://localhost:3030/","origin":"http://localhost:3030"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-16 07:45:26 [32minfo[39m: Verificando token
+2024-08-16 07:45:26 [32minfo[39m: /usuario
+2024-08-16 07:45:26 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-16 07:45:26 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-16 07:45:26 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-16 07:45:26 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-16 07:45:26 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-16 07:45:26 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-16 07:45:30 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-16 07:45:30 [31merror[39m: No existe un usuario con ese correo

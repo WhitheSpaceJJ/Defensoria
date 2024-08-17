@@ -34,6 +34,7 @@ router.route('/usuario')
   .get(
     servicioUsuarios.obtenerUsuarioCorreoPassword);
 
+ 
 
     
 
@@ -72,6 +73,7 @@ router.route('/:id')
     existeUsuario,
     validarJSONUsuarioPUT,
     servicioUsuarios.actualizarUsuario);
+
 
 // Exportamos el router
 module.exports = router;

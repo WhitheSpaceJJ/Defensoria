@@ -140,7 +140,6 @@ app.use('/usuarios',
   usuariosRutas);
 
 
-
 // Si ninguna ruta coincide, creamos un error personalizado y lo pasamos al siguiente middleware
 app.all("*", (req, res, next) => {
   const err = new CustomeError("No se puede encontrar " + req.originalUrl + " en el servidor", 404);

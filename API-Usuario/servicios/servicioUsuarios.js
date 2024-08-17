@@ -84,7 +84,7 @@ const actualizarUsuario = asyncError(async (req, res, next) => {
  * @returns {Object} respuesta con estatus 200 con el usuario encontrado, o error correspondiente
  * */
 const obtenerUsuarioPorId = asyncError(async (req, res, next) => {
-   logger.info("Petición para obtener un usuario por su id");
+  logger.info("Petición para obtener un usuario por su id");
   const result = await controlUsuarios.obtenerUsuarioPorId(req.params.id); // Cambio de controlZonas a controlUsuarios
   logger.info("Se verifica el resultado de la petición de obtener un usuario por su id")
   if (result === null || result === undefined) {
@@ -114,7 +114,7 @@ const obtenerUsuarioCorreoPassword = asyncError(async (req, res, next) => {
 
   const usuarioStr = JSON.stringify(result);
   const usuarioObj = JSON.parse(usuarioStr);
-   logger.info("Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña")
+  logger.info("Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña")
   if (usuarioObj === null) {
     logger.error("No existe un usuario con ese correo");
     const error = new CustomeError('La contraseña es incorrecta.', 404); // Cambio de zona a usuario
@@ -142,7 +142,7 @@ const obtenerUsuarioCorreoPassword = asyncError(async (req, res, next) => {
         id_distrito_judicial: usuarioObj.id_distrito_judicial,
         id_tipouser: usuarioObj.id_tipouser,
         //   estatus_general: usuarioObj.estatus_general,
-       id_empleado: usuarioObj.id_empleado,  
+        id_empleado: usuarioObj.id_empleado,
         id_usuario: usuarioObj.id_usuario,
         permisos: usuarioObj.permisos
       });
@@ -230,7 +230,7 @@ const recuperarContraseña = asyncError(async (req, res, next) => {
   const usuarioStr = JSON.stringify(result);
   const usuarioObj = JSON.parse(usuarioStr);
   logger.info("Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña")
-  if (usuarioObj === null) { 
+  if (usuarioObj === null) {
     logger.error("No existe un usuario con ese correo");
     const error = new CustomeError('No existe un usuario con ese correo.', 404); // Cambio de zona a usuario
     return next(error);
@@ -283,6 +283,7 @@ const obtenerUsuariosBusqueda = asyncError(async (req, res, next) => {
     return next(error);
   }
 });
+
 
 // Exportamos las funciones definidas
 module.exports = {
