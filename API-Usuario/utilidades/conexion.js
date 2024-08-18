@@ -11,7 +11,7 @@ const {
 
 // Crear la conexión a la base de datos
 const sequelize = new Sequelize(DATABASE, DBUSER, DBPASSWORD, {
-  host: DBHOST || 'db2',
+  host: process.env.DBHOST ,
   port: DBPORT,
   dialect: "mysql",
   logging: false,

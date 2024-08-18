@@ -90,9 +90,19 @@ const obtenerUsuarioPorId = async (id) => {
  * @param {String} password Contraseña del usuario a buscar
  * @returns {Object} Objeto con el usuario encontrado, o null si la constraseña no es válida o no se encuentra el usuario 
  *  */
+
+const sequelize = require('../utilidades/conexion');
 const obtenerUsuarioCorreoPassword = async (correo, password) => {
   try {
     logger.info("Obteniendo el usuario por correo y contraseña");
+    try{
+      await sequelize.authenticate();
+      logger.info("Conexión establecida correctamente");
+    }
+    catch(error){
+      console.log("Error:", error.message);
+      logger.error(error.message);
+    }
     const usuario = await modelUsuario.Usuario.findOne({
       attributes: {
       },

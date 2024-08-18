@@ -1,0 +1,163 @@
+2024-08-18 00:28:26 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 00:29:19 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 00:29:19 [32minfo[39m: Verificando token
+2024-08-18 00:29:19 [32minfo[39m: /usuario
+2024-08-18 00:29:19 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 00:29:19 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 00:29:19 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 00:29:19 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 00:29:19 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 00:29:19 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 00:29:23 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 00:29:23 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 00:44:47 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 00:45:03 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 00:45:03 [32minfo[39m: Verificando token
+2024-08-18 00:45:03 [32minfo[39m: /usuario
+2024-08-18 00:45:03 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 00:45:03 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 00:45:03 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 00:45:03 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 00:45:03 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 00:45:03 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 00:45:07 [31merror[39m: getaddrinfo ENOTFOUND db2
+2024-08-18 00:45:11 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 00:45:11 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 00:52:03 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 00:52:09 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 00:52:09 [32minfo[39m: Verificando token
+2024-08-18 00:52:09 [32minfo[39m: /usuario
+2024-08-18 00:52:09 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 00:52:09 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 00:52:09 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 00:52:09 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 00:52:09 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 00:52:09 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 00:52:09 [31merror[39m: connect ECONNREFUSED 127.0.0.1:3306
+2024-08-18 00:52:09 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 00:52:09 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 00:57:09 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 00:59:34 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 00:59:34 [32minfo[39m: Verificando token
+2024-08-18 00:59:34 [32minfo[39m: /usuario
+2024-08-18 00:59:34 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 00:59:34 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 00:59:34 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 00:59:34 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 00:59:34 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 00:59:34 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 00:59:41 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 00:59:42 [32minfo[39m: Verificando token
+2024-08-18 00:59:42 [32minfo[39m: /usuario
+2024-08-18 00:59:42 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 00:59:42 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 00:59:42 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 00:59:42 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 00:59:42 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 00:59:42 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 00:59:44 [31merror[39m: connect ETIMEDOUT
+2024-08-18 00:59:45 [31merror[39m: connect ETIMEDOUT
+2024-08-18 00:59:55 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 00:59:55 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 00:59:55 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 00:59:55 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 01:08:55 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 01:09:24 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 01:09:24 [32minfo[39m: Verificando token
+2024-08-18 01:09:24 [32minfo[39m: /usuario
+2024-08-18 01:09:24 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 01:09:24 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 01:09:24 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 01:09:24 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 01:09:24 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 01:09:24 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 01:09:28 [31merror[39m: getaddrinfo ENOTFOUND db2
+2024-08-18 01:09:32 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 01:09:32 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 01:16:03 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 01:16:15 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 01:16:15 [32minfo[39m: Verificando token
+2024-08-18 01:16:15 [32minfo[39m: /usuario
+2024-08-18 01:16:15 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 01:16:15 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 01:16:15 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 01:16:15 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 01:16:15 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 01:16:15 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 01:16:19 [31merror[39m: getaddrinfo ENOTFOUND db2
+2024-08-18 01:16:23 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 01:16:23 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 05:21:38 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 05:23:08 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 05:23:08 [32minfo[39m: Verificando token
+2024-08-18 05:23:08 [32minfo[39m: /usuario
+2024-08-18 05:23:08 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 05:23:08 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 05:23:08 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 05:23:08 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 05:23:08 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 05:23:08 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 05:23:12 [31merror[39m: getaddrinfo ENOTFOUND db2
+2024-08-18 05:23:16 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 05:23:16 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 05:28:27 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 05:28:36 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 05:28:36 [32minfo[39m: Verificando token
+2024-08-18 05:28:36 [32minfo[39m: /usuario
+2024-08-18 05:28:36 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 05:28:36 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 05:28:36 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 05:28:36 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 05:28:36 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 05:28:36 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 05:28:37 [31merror[39m: Access denied for user 'itson'@'172.28.0.3' (using password: YES)
+2024-08-18 05:28:37 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 05:28:37 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 07:48:58 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 07:49:09 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 07:49:09 [32minfo[39m: Verificando token
+2024-08-18 07:49:09 [32minfo[39m: /usuario
+2024-08-18 07:49:09 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 07:49:09 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 07:49:09 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 07:49:09 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 07:49:09 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 07:49:09 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 07:49:11 [32minfo[39m: Conexión establecida correctamente
+2024-08-18 07:49:11 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 07:49:11 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 07:57:06 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 07:57:43 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 07:57:43 [32minfo[39m: Verificando token
+2024-08-18 07:57:43 [32minfo[39m: /usuario
+2024-08-18 07:57:43 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 07:57:43 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 07:57:43 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 07:57:43 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 07:57:43 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 07:57:43 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 07:57:44 [32minfo[39m: Conexión establecida correctamente
+2024-08-18 07:57:44 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 07:57:44 [31merror[39m: No existe un usuario con ese correo
+2024-08-18 08:18:02 [32minfo[39m: Servidor escuchando en el puerto 3002
+2024-08-18 08:18:25 [32minfo[39m: Request: GET /usuarios/usuario?correo=defensoria.testing.usuario1@gmail.com&password=defensoria1 - Headers: {"user-agent":"PostmanRuntime/7.41.1"} - Query: {"correo":"defensoria.testing.usuario1@gmail.com","password":"defensoria1"} - Body: {}
+2024-08-18 08:18:25 [32minfo[39m: Verificando token
+2024-08-18 08:18:25 [32minfo[39m: /usuario
+2024-08-18 08:18:25 [32minfo[39m: Se evalua la ruta de usuario o recuperacion, esto es para el caso de que no se tenga token, osea inicio de sesion o recuperacion de contraseña
+2024-08-18 08:18:25 [32minfo[39m: Se permite el acceso a la ruta de usuario o recuperacion
+2024-08-18 08:18:25 [32minfo[39m: Se continua con el siguiente middleware
+2024-08-18 08:18:25 [32minfo[39m: Petición para obtener un usuario por su correo y contraseña
+2024-08-18 08:18:25 [32minfo[39m: Se manda a llamar la función obtenerUsuarioCorreoPassword, en base al correo y contraseña obtenidos en la petición
+2024-08-18 08:18:25 [32minfo[39m: Obteniendo el usuario por correo y contraseña
+2024-08-18 08:18:26 [32minfo[39m: Conexión establecida correctamente
+2024-08-18 08:18:26 [32minfo[39m: Usuario obtenido correctamente
+2024-08-18 08:18:26 [32minfo[39m: Se verifica si el usuario es diferente de null o undefined
+2024-08-18 08:18:26 [32minfo[39m: Se verifica si la contraseña es válida
+2024-08-18 08:18:26 [32minfo[39m: La contraseña es válida
+2024-08-18 08:18:26 [32minfo[39m: Se obtienen los permisos del usuario
+2024-08-18 08:18:26 [32minfo[39m: Obteniendo permisos de un usuario en base a su id
+2024-08-18 08:18:26 [32minfo[39m: Permisos obtenidos
+2024-08-18 08:18:26 [32minfo[39m: Se verifica el resultado de la petición de obtener un usuario por su correo y contraseña
+2024-08-18 08:18:26 [32minfo[39m: Usuario obtenido correctamente
+2024-08-18 08:18:26 [32minfo[39m: Se verifica si el usuario tiene permisos
+2024-08-18 08:18:26 [32minfo[39m: El usuario tiene permisos, se genera un token

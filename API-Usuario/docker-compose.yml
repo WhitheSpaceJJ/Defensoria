@@ -1,46 +1,35 @@
 version: '3.8'
 
 services:
+  app:
+    image: node:latest
+    ports:
+      - "3002:3002"
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    networks:
+      - app-network
+    depends_on:
+      - db2
+    command: sh -c "rm -rf node_modules && npm install && node app.js"
+
   db2:
-    image: mysql:8.0
+    image: mysql:8.0.36
     restart: always
     environment:
       MYSQL_DATABASE: ${DATABASE}
       MYSQL_ROOT_PASSWORD: ${DBPASSWORD}
     ports:
       - "3308:3306"
-    expose:
-      - "3306"
     volumes:
       - db_data:/var/lib/mysql
       - ./usuarios_testing.sql:/docker-entrypoint-initdb.d/usuarios_testing.sql
-
-  app:
-    build: .
-    ports:
-      - "3002:3002"
-    environment:
-      DEPLOYCORS: ${DEPLOYCORS}
-      DBHOST: db2
-      DBUSER: ${DBUSER}
-      DBPASSWORD: ${DBPASSWORD}
-      DATABASE: ${DATABASE}
-      PORT: ${PORT}
-      DBPORT: ${DBPORT}
-      HOSTGRPCASESORIAS: ${HOSTGRPCASESORIAS}
-      GRPCPORTUSUARIOS: ${GRPCPORTUSUARIOS}
-      DEPLOY: ${DEPLOY}
-      DEPLOYA: ${DEPLOYA}
-      DEPLOYB: ${DEPLOYB}
-      APPWEBASESORIA: ${APPWEBASESORIA}
-      APPWEBDEMANDA: ${APPWEBDEMANDA}
-      IPS: ${IPS}
-    depends_on:
-      - db2
-    volumes:
-      - .:/usr/src/app
-    network_mode: "bridge"
-    command: sh -c "while ! nc -z db2 3306; do sleep 1; done && rm -rf node_modules && npm install && node app.js"
+    networks:
+      - app-network
 
 volumes:
   db_data:
+
+networks:
+  app-network:

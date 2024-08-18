@@ -1,10 +1,5 @@
 CREATE DATABASE  IF NOT EXISTS `defensoria_usuarios_oficial` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `defensoria_usuarios_oficial`;
-CREATE USER 'itson'@'localhost' IDENTIFIED BY 'itson1';
-
-GRANT ALL PRIVILEGES ON defensoria_usuarios_oficial.* TO 'itson'@'localhost';
-
-FLUSH PRIVILEGES;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: defensoria_usuarios_oficial
