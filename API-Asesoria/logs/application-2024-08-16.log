@@ -1,4 +1,0 @@
-2024-08-16 01:17:34 [32minfo[39m: Servidor escuchando en el puerto 3009
-2024-08-16 01:29:07 [32minfo[39m: Servidor escuchando en el puerto 3009
-2024-08-16 01:29:18 [32minfo[39m: Request: GET /asesorias - Headers: {"user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0"} - Query: {} - Body: {}
-2024-08-16 01:29:18 [33mwarn[39m: Token no proporcionado.
